@@ -25,6 +25,8 @@ const initialList = [
   },
 ];
 
+
+
 function App() {
   const [list, setList] = useState(initialList);
 
@@ -38,7 +40,18 @@ function App() {
     );
   };
 
-  const totalLikes = list.forEach()
+  function total() {
+    let totalLikes = 0;
+    list.forEach((user) => {
+      if (user.like) {
+        totalLikes += 1;
+      }
+    });
+    console.log(totalLikes);
+    return totalLikes;
+  };
+  console.log(list);
+
 
   return (
     <div>
@@ -47,7 +60,7 @@ function App() {
         <Line user={user} handleClick={handleClick} />
       ))}
       <div>
-        <h2>Total d'aubergines : </h2>
+        <h2>Total d'aubergines : {total()} </h2>
       </div>
     </div>
   );
